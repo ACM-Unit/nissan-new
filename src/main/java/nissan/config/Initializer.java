@@ -1,5 +1,6 @@
 package nissan.config;
 
+import org.apache.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;

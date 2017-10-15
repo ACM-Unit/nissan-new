@@ -1,5 +1,6 @@
 package nissan.config;
 
+import org.apache.log4j.Logger;
 import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +21,7 @@ import java.util.Properties;
 @PropertySource("classpath:app.properties")
 @EnableJpaRepositories("nissan.repository")
 public class DataConfigOpenshift {
+    private static  final Logger logger = Logger.getLogger(DataConfigOpenshift.class);
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://"+System.getenv("MYSQL_SERVICE_HOST")+":"+System.getenv("MYSQL_SERVICE_PORT")+"/"+System.getenv("MYSQL_DATABASE")+"?characterEncoding=UTF-8";
     private static final String PROPERTY_NAME_DATABASE_USERNAME = System.getenv("MYSQL_USER");
@@ -32,6 +34,7 @@ public class DataConfigOpenshift {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        logger.debug("jdbc:mysql://"+System.getenv("MYSQL_SERVICE_HOST")+":"+System.getenv("MYSQL_SERVICE_PORT")+"/"+System.getenv("MYSQL_DATABASE")+"?characterEncoding=UTF-8");
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
