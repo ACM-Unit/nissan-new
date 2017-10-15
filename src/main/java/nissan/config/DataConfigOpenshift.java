@@ -21,9 +21,9 @@ import java.util.Properties;
 @EnableJpaRepositories("nissan.repository")
 public class DataConfigOpenshift {
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://"+System.getenv("OPENSHIFT_MYSQL_DB_HOST")+":"+System.getenv("OPENSHIFT_MYSQL_DB_PORT")+"/"+System.getenv("OPENSHIFT_GEAR_NAME")+"?characterEncoding=UTF-8";
-    private static final String PROPERTY_NAME_DATABASE_USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-    private static final String PROPERTY_NAME_DATABASE_PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+    private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://"+System.getenv("MYSQL_HOST")+":"+System.getenv("MYSQL_PORT")+"/"+System.getenv("MYSQL_DATABASE")+"?characterEncoding=UTF-8";
+    private static final String PROPERTY_NAME_DATABASE_USERNAME = System.getenv("MYSQL_USER");
+    private static final String PROPERTY_NAME_DATABASE_PASSWORD = System.getenv("MYSQL_PASSWORD");
 
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "org.hibernate.dialect.MySQLDialect";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "true";
