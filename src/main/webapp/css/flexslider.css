@@ -1,0 +1,79 @@
+/*
+ * jQuery FlexSlider v1.0 (Release)
+ * http://flex.madebymufffin.com
+ *
+ * Copyright 2011, Tyler Smith
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {width: 100%; margin: 0; padding: 0;}
+.flexslider .slides li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {max-width: 100%; display: block; width: 100%;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {background: #fff;  position: relative;}
+.flexslider .slides  li {position: relative;}
+.flexslider .slides  li .content-details{position: absolute; top: 0; width:100%; padding: 2.5em 20px 0 15px;}
+.flexslider .slides  li .content-details .content-details-inner{max-width: 1200px;  margin: 0 auto;  padding-left: 60px; width:100%;}
+.flexslider .slides  li .content-details .content-details-inner .heading-group h2 { width: 300px;
+    font-size: 4.4285714286em;
+    letter-spacing: -.025em;
+    line-height: .88;
+    color: #000;
+    font-family: "Nissan Bold",Verdana,Arial,sans-serif;}
+.flexslider .slides  li .content-details .content-details-inner .actions a{line-height: 5; border: 1px solid #c3002f;
+background: #c3002f;
+color: #FFF;
+font-family: "Nissan Bold",Verdana,Arial,sans-serif;
+text-transform: uppercase;
+padding: .7142857143em;
+margin-right: .5em;
+    text-decoration: none;}
+.flexslider .slides  li .content-details .content-details-inner .actions a:hover{
+    background: #920023;
+    text-decoration: underline;
+}
+.flexslider .slides  li .content-details .content-details-inner .heading-group p {
+    font-size: 1.4285714286em;
+    margin-top: .5em;
+    margin-bottom: 1.4285714286em;
+    font-family: "Nissan Bold",Verdana,Arial,sans-serif;
+    display: table-caption;
+    color: #c3002f;
+    width:100%;
+}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flexslider-container {position: relative;}
+
+/* Caption style */
+.flex-caption {width: 96%; position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,.3); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.3); font-size: 14px; line-height: 18px;}
+
+/* Direction Nav */
+.flex-direction-nav{width: 1500px;  margin: 0px auto;}
+.flex-direction-nav li a {z-index: 10; width: 40px;  height: 40%;  margin: -13px 0 0;  display: block;  background: url(/images/bg_direction_nav.png) no-repeat 35px 35px;  position: absolute;  top: 30%;  cursor: pointer;  text-indent: -9999px;  background-color: rgba(255, 255, 255, 0.68);}
+.flexsliderjuke .flex-direction-nav li a {z-index: 10; width: 40px;  height: 40%;  margin: -13px 0 0;  display: block;  background: url(/images/bg_direction_nav.png) no-repeat 35px 35px;  position: absolute;  top: 30%;  cursor: pointer;  text-indent: -9999px;  background-color: rgba(255, 255, 255, 1);}
+.flex-direction-nav li a:hover {background-image: url(/images/bg_direction_nav_hover.png); background-color: rgba(194, 0, 47, 0.99);}/* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a.flex-next {background-position: -40px 50%; float: right;  }
+.flex-direction-nav li a.flex-prev {background-position: 10px 50%; float: left; }
+
+
+/* Control Nav */
+.flex-control-nav {  position: absolute; margin-top: -30px;  left: 50%;  z-index: 10;} /* set negative margin-left equal to half the width on the control-nav for perfect centering */
+.flex-control-nav li {margin: 0 0 0 5px; float: left;}
+.flex-control-nav li:first-child {margin: 0;}
+.flex-control-nav li a {width: 13px; height: 13px; display: block; background: url(/images/bg_control_nav.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
+.flex-control-nav li a:hover {background-position: 0 -13px;}
+.flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
+@media screen and (min-width: 1500px){
+    .flex-direction-nav li a.flex-next {margin-left: 1460px;}
+}
+@media screen and (max-width: 1500px){
+    .flex-direction-nav{width: 100%; }
+    .flex-direction-nav li a.flex-next {background-position: -40px 50%; right: 0;}
+    .flex-direction-nav li a.flex-prev {background-position: 10px 50%; left: 0px;}
+}
