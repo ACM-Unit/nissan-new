@@ -36,7 +36,8 @@ public class DataConfigOpenshift {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         logger.debug("jdbc:mysql://"+System.getenv("MYSQL_SERVICE_HOST")+":"+System.getenv("MYSQL_SERVICE_PORT")+"/nissan?characterEncoding=UTF-8");
         logger.debug(System.getenv("MYSQL_USER"));
-                logger.debug(System.getenv("MYSQL_PASSWORD"));
+        logger.debug(System.getenv("MYSQL_PASSWORD"));
+        logger.debug("-------------------root password: "+System.getenv("MYSQL_ROOT_PASSWORD"));
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
